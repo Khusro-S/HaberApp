@@ -10,10 +10,13 @@ const useNewsData = (category, searchTerm) => {
             try {
                 setLoading(true);
                 const apiUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=d20e917f2d234efeb88790a8404382fc';
-                const apiSearchUrl = `https://newsapi.org/v2/everything?from=2023-10-27&to=2023-10-27&sortBy=popularity&apiKey=d20e917f2d234efeb88790a8404382fc`;
-                const categoryParam = category? `&category=${category}` : '';
-                const searchParam = searchTerm? `${apiSearchUrl}&q=${searchTerm}` : '';
-                const url = searchTerm? searchParam : apiUrl + categoryParam;
+                const apiSearchUrl = `https://newsapi.org/v2/everything?from=2024-01-12&to=2024-02-12&sortBy=popularity&apiKey=d20e917f2d234efeb88790a8404382fc`;
+                const categoryParam = category ? `&category=${category}` : "";
+                const searchParam = searchTerm
+                  ? `${apiSearchUrl}&q=${searchTerm}`
+                  : "";
+                const url = searchTerm ? searchParam : apiUrl + categoryParam;
+                console.log(url);
                 const response = await fetch(url);
                 const data = await response.json();
                 
